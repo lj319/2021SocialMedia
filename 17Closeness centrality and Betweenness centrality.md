@@ -45,6 +45,20 @@ $$
 与A相连的路径为3的共3个点，为I,J,K
 
 可得A的平均距离为$d(A)=\frac{1}{11}(4+2*3=3*3)$，则A的接近度中心性$CC_i=\frac{1}{d(A)}$。
+##### 6、相关代码展示
+import csv
+import networkx as nx
+B= open('路径','r')#打开文件
+lines = B.readlines()#对文件进行逐行读取
+G=nx.Graph()
+for line in lines:#绘制无向图
+    whole = line.split(',')  # 以空格为分隔符，包含 \n
+    k = whole[0]  # 取出每行数据的第一个数
+    j = whole[1]  # 取出每行数据的第二个数
+    G.add_edge(k,j)
+print(G)
+z=nx.closeness_centrality(G)#利用networkx库中的函数计算接近中心性
+print(z)
 
 ### 二、介数中心性
 
@@ -109,6 +123,21 @@ $$
 从3->2,最短路径为（3，2），该路径不经过节点1，所以$n_{32}^1=0,g_{32}^1=1$
 
 综上，得出结论：$B(1)=\frac{1}{1}+\frac{0}{1}+\frac{1}{2}+\frac{2}{2}+\frac{1}{1}+\frac{0}{1}=\frac{7}{2}$；利用（4）式归一化得$B(1)=\frac{7}{12}$。
-
-
+##### 6、相关代码展示
+import csv
+import networkx as nx
+B= open('路径','r')#打开文件
+lines = B.readlines()#对文件进行逐行读取
+G=nx.Graph()
+for line in lines:#绘制无向图
+    whole = line.split(',')  # 以空格为分隔符，包含 \n
+    k = whole[0]  # 取出每行数据的第一个数
+    j = whole[1]  # 取出每行数据的第二个数
+    G.add_edge(k,j)
+print(G)
+y=nx.betweenness_centrality(G,1)#利用networkx库中的函数计算介数中心性
+print(y)
+### 三、参考文献
+[1]Aric Hagberg, Dan Schult, Pieter Swart.《networkx》,Nov 27, 2020.
+[2]汪小帆，李 翔，陈关荣.《网络科学导论》.高等教育出版社,2012年,4月.
 
