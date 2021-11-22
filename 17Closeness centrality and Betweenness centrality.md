@@ -46,6 +46,7 @@ $$
 
 可得A的平均距离为$d(A)=\frac{1}{11}(4+2*3=3*3)$，则A的接近度中心性$CC_i=\frac{1}{d(A)}$。
 ##### 6、相关代码展示
+```{python}
 import csv
 import networkx as nx
 B= open('路径','r')#打开文件
@@ -59,7 +60,7 @@ for line in lines:#绘制无向图
 print(G)
 z=nx.closeness_centrality(G)#利用networkx库中的函数计算接近中心性
 print(z)
-
+```
 ### 二、介数中心性
 
 ##### 1、定义
@@ -124,6 +125,7 @@ $$
 
 综上，得出结论：$B(1)=\frac{1}{1}+\frac{0}{1}+\frac{1}{2}+\frac{2}{2}+\frac{1}{1}+\frac{0}{1}=\frac{7}{2}$；利用（4）式归一化得$B(1)=\frac{7}{12}$。
 ##### 6、相关代码展示
+```{python}
 import csv
 import networkx as nx
 B= open('路径','r')#打开文件
@@ -137,6 +139,7 @@ for line in lines:#绘制无向图
 print(G)
 y=nx.betweenness_centrality(G,1)#利用networkx库中的函数计算介数中心性
 print(y)
+```
 ### 三、参考文献
 [1]Aric Hagberg, Dan Schult, Pieter Swart.《networkx》,Nov 27, 2020.
 [2]汪小帆，李 翔，陈关荣.《网络科学导论》.高等教育出版社,2012年,4月.
